@@ -1,5 +1,15 @@
 import java.util.Scanner;
 import java.util.Random;
+public class task1 {
+    public static void main(String[] args){
+        RandomNumbers num = new RandomNumbers();
+        num.setN();
+        num.setMyArray(num.getN());
+        num.showMyArray();
+        num.showLnMyArray();
+    }
+}
+
 class RandomNumbers {
     Scanner scanner = new Scanner(System.in);
     Random random = new Random();
@@ -31,14 +41,5 @@ class RandomNumbers {
         for (int i = 0; i<myArray.length; i++){
             System.out.println(myArray[i]);
         }
-    }
-}
-public class task1 {
-    public static void main(String[] args){
-        RandomNumbers num = new RandomNumbers();
-        num.setN();
-        num.setMyArray(num.getN());
-        num.showMyArray();
-        num.showLnMyArray();
     }
 }
