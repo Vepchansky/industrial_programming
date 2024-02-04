@@ -9,5 +9,11 @@ public class task2 {
 
     public static void main(String[] args) {
         task2.printInfo();
+        
+        System.out.print("Введите начальное и конечное значение интервала: ");
+        Scanner scan = new Scanner(System.in);
+        String line = scan.nextLine();
+
+        scan.close();
     }
 }
