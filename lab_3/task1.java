@@ -18,7 +18,7 @@ public class task1 {
 
     }
 }
-
+// test 
 class Train {
 
     private String destPoint;
