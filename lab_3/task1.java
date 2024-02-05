@@ -6,6 +6,11 @@ public class task1 {
     public static void main(String[] args){
 
         Train t1 = new Train();
+        Train[] tm = {
+            new Train(),
+            new Train(),
+            new Train(),
+        };
 
         // Проверка методов get и set
 
@@ -15,13 +20,15 @@ public class task1 {
         // Проверка метода toString
 
         System.out.println(t1);
+        System.out.println(tm[1]);
+
 
     }
 }
-// test 
+
 class Train {
 
-    private String destPoint;
+    private String destPoint = "Коломна";
     private int trainNumber;
     private LocalTime departureTime;
     private int totalSeats,
