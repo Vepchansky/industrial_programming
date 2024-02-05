@@ -6,16 +6,16 @@ import java.util.ArrayList;
 
 public class task1 {
     public static List<Train> setTrains(List<Train> testTrains) {
-       testTrains.add(new Train("Казань", 7777, LocalTime.of(8, 0, 0), new int[] {1000, 600, 350, 50}));
-       testTrains.add(new Train("Москва", 5555, LocalTime.of(19, 20, 0), new int[] {500, 0, 500, 0}));
-       testTrains.add(new Train("Коломна", 1234, LocalTime.of(8, 30, 0), new int[] {500, 0, 500, 0}));
-       testTrains.add(new Train("Москва", 4321, LocalTime.of(18, 0, 0), new int[] {500, 0, 500, 0}));
-       testTrains.add(new Train("Коломна", 5234, LocalTime.of(12, 25, 0), new int[] {500, 0, 500, 0}));
+       testTrains.add(new Train("Казань", 7777, LocalTime.of(8, 0, 0), new int[] {0, 600, 350, 50}));
+       testTrains.add(new Train("Москва", 5555, LocalTime.of(19, 20, 0), new int[] {300, 0, 300, 0}));
+       testTrains.add(new Train("Коломна", 1234, LocalTime.of(8, 30, 0), new int[] {300, 0, 0, 0}));
+       testTrains.add(new Train("Москва", 4321, LocalTime.of(18, 0, 0), new int[] {0, 0, 500, 0}));
+       testTrains.add(new Train("Коломна", 5234, LocalTime.of(12, 25, 0), new int[] {500, 0, 0, 0}));
        testTrains.add(new Train("Рязань", 6124, LocalTime.of(9, 40, 0), new int[] {500, 0, 400, 100}));
        testTrains.add(new Train("Рязань", 6124, LocalTime.of(14, 26, 0), new int[] {500, 0, 400, 100}));
-       testTrains.add(new Train("Казань", 6666, LocalTime.of(22, 15, 0), new int[] {1000, 600, 350, 50}));
-       testTrains.add(new Train("Коломна", 1234, LocalTime.of(20, 4, 0), new int[] {500, 0, 500, 0}));
-       testTrains.add(new Train("Казань", 7777, LocalTime.of(16, 50, 0), new int[] {1000, 600, 350, 50}));
+       testTrains.add(new Train("Казань", 6666, LocalTime.of(22, 15, 0), new int[] {0, 600, 350, 50}));
+       testTrains.add(new Train("Коломна", 1234, LocalTime.of(20, 4, 0), new int[] {500, 0, 0, 0}));
+       testTrains.add(new Train("Казань", 7777, LocalTime.of(16, 50, 0), new int[] {0, 600, 350, 50}));
        return testTrains;
     }
 
@@ -51,6 +51,7 @@ public class task1 {
         System.out.print("Введите пункт назначения: ");
         String destination = scan.nextLine();
 
+        // Пункт задачи а
         System.out.println("Поезда следующие до " + destination);
         for(int i = 0; i < trains.size(); i++) {
             if ( trains.get(i).getDestPoint().equals(destination) )
@@ -59,6 +60,18 @@ public class task1 {
             }
         }
 
+        // Пункт задачи с
+        System.out.println("Поезда следующие до " + destination +
+                            " имеющие общие места:");
+        for(int i = 0; i < trains.size(); i++) {
+            if ( trains.get(i).getDestPoint().equals(destination) &
+                    trains.get(i).getTotalSeats() > 0 )
+            {
+                System.out.println(trains.get(i));
+            }
+        }
+
+        // Пункт задачи b
         System.out.print("Введите время отправления[hh mm]: ");
         int hours = scan.nextInt();
         int minutes = scan.nextInt();
