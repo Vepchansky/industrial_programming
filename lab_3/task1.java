@@ -6,8 +6,16 @@ import java.util.ArrayList;
 
 public class task1 {
     public static List<Train> setTrains(List<Train> testTrains) {
-       int[] testSeats = {100, 50, 30, 20};
-       testTrains.add(new Train("Казань", 7777, LocalTime.of(1, 2, 3), testSeats));
+       testTrains.add(new Train("Казань", 7777, LocalTime.of(8, 0, 0), new int[] {1000, 600, 350, 50}));
+       testTrains.add(new Train("Москва", 5555, LocalTime.of(19, 20, 0), new int[] {500, 0, 500, 0}));
+       testTrains.add(new Train("Коломна", 1234, LocalTime.of(8, 30, 0), new int[] {500, 0, 500, 0}));
+       testTrains.add(new Train("Москва", 4321, LocalTime.of(18, 0, 0), new int[] {500, 0, 500, 0}));
+       testTrains.add(new Train("Коломна", 5234, LocalTime.of(12, 25, 0), new int[] {500, 0, 500, 0}));
+       testTrains.add(new Train("Рязань", 6124, LocalTime.of(9, 40, 0), new int[] {500, 0, 400, 100}));
+       testTrains.add(new Train("Рязань", 6124, LocalTime.of(14, 26, 0), new int[] {500, 0, 400, 100}));
+       testTrains.add(new Train("Казань", 6666, LocalTime.of(22, 15, 0), new int[] {1000, 600, 350, 50}));
+       testTrains.add(new Train("Коломна", 1234, LocalTime.of(20, 4, 0), new int[] {500, 0, 500, 0}));
+       testTrains.add(new Train("Казань", 7777, LocalTime.of(16, 50, 0), new int[] {1000, 600, 350, 50}));
        return testTrains;
     }
 
@@ -37,7 +45,7 @@ public class task1 {
         // Проверка заполнения массива
 
         List<Train> trains = task1.setTrains(new ArrayList<Train>());
-        System.out.println(trains);
+        System.out.println(trains.get(2));
 
 
     }
