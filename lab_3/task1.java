@@ -59,6 +59,22 @@ public class task1 {
             }
         }
 
+        System.out.print("Введите время отправления[hh mm]: ");
+        int hours = scan.nextInt();
+        int minutes = scan.nextInt();
+        LocalTime timeDepart = LocalTime.of(hours, minutes);
+
+
+        System.out.println("Поезда следующие до " + destination +
+                            " после " + timeDepart + " :");
+        for(int i = 0; i < trains.size(); i++) {
+            if ( trains.get(i).getDestPoint().equals(destination) & 
+                    trains.get(i).getDepTime().isAfter(timeDepart) )
+            {
+                System.out.println(trains.get(i));
+            }
+        }
+
         
 
     }
