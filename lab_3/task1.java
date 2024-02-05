@@ -21,31 +21,9 @@ public class task1 {
 
     public static void main(String[] args){
 
-        LocalTime testTime =  LocalTime.of(1, 2, 3);
-        int[] testSeats = {100, 50, 30, 20};
-
-        Train t1 = new Train();
-        Train[] tm = {
-            new Train(),
-            new Train("Москва", 666, testTime),
-            new Train("Казань", 7777, testTime, testSeats),
-        };
-
-        // Проверка методов get и set
-
-        //System.out.println(t1.getDestPoint());
-        //System.out.println(t1.getDepTime());
-
-        // Проверка метода toString
-
-        //System.out.println(t1);
-        //System.out.println(tm[1]);
-        //System.out.println(tm[2]);
-
-        // Проверка заполнения массива
+        // Заполнение массива trains
 
         List<Train> trains = task1.setTrains(new ArrayList<Train>());
-        System.out.println(trains.get(2).getDestPoint());
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Введите пункт назначения: ");
