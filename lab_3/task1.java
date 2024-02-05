@@ -33,20 +33,33 @@ public class task1 {
 
         // Проверка методов get и set
 
-        System.out.println(t1.getDestPoint());
-        System.out.println(t1.getDepTime());
+        //System.out.println(t1.getDestPoint());
+        //System.out.println(t1.getDepTime());
 
         // Проверка метода toString
 
-        System.out.println(t1);
-        System.out.println(tm[1]);
-        System.out.println(tm[2]);
+        //System.out.println(t1);
+        //System.out.println(tm[1]);
+        //System.out.println(tm[2]);
 
         // Проверка заполнения массива
 
         List<Train> trains = task1.setTrains(new ArrayList<Train>());
-        System.out.println(trains.get(2));
+        System.out.println(trains.get(2).getDestPoint());
 
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Введите пункт назначения: ");
+        String destination = scan.nextLine();
+
+        System.out.println("Поезда следующие до " + destination);
+        for(int i = 0; i < trains.size(); i++) {
+            if ( trains.get(i).getDestPoint().equals(destination) )
+            {
+                System.out.println(trains.get(i));
+            }
+        }
+
+        
 
     }
 }
