@@ -16,6 +16,24 @@ public class task3 {
 	return testVectors;
     }
 
+    public static void checkToColl(Vector a, Vector b) {
+	    String answer;
+	    if ( Vector.isColl(a, b)) 
+		    answer = " коллинеарны";
+	    else answer = " не коллинеарны";
+
+	    System.out.println("Векторы " + a + " и " + b + answer);
+    }
+
+    public static void checkToOrth(Vector a, Vector b) {
+	    String answer;
+	    if ( Vector.isOrth(a, b)) 
+		    answer = " ортогональны";
+	    else answer = " не ортогональны";
+
+	    System.out.println("Векторы " + a + " и " + b + " " + answer);
+    }
+
     public static void main(String[] args){
         List<Vector> vectors = task3.setVector(new ArrayList<Vector>());
 
@@ -50,15 +68,12 @@ public class task3 {
         System.out.println(vectors.get(1).getMulOnScal(2.0));
 
         System.out.println();
-        System.out.println("Проверка векторов\n" + vectors.get(0) +
-			   " и " + vectors.get(1) + " на коллинеарность:");
-        System.out.println(Vector.isColl(vectors.get(0), vectors.get(1)));
-        System.out.println(Vector.isColl(vectors.get(0), vectors.get(2)));
+	task3.checkToColl(vectors.get(0), vectors.get(1));
+	task3.checkToColl(vectors.get(0), vectors.get(2));
 
         System.out.println();
-        System.out.println("Проверка векторов на ортогональность:");
-        System.out.println(Vector.isOrth(vectors.get(0), vectors.get(1)));
-        System.out.println(Vector.isOrth(vectors.get(0), vectors.get(2)));
+	task3.checkToOrth(vectors.get(0), vectors.get(1));
+	task3.checkToOrth(vectors.get(0), vectors.get(2));
 
     }
 }
@@ -192,13 +207,11 @@ class Vector {
 
         if ( this.dimension == 2)
             stringFormat = "(" + String.format(Locale.GERMAN, "%,.2f",this.x) +
-		    	    "; " + String.format(Locale.GERMAN, "%,.2f", this.y) + ") " +
-                            "R^" + this.dimension;
-        else //( this.dimension == 3 )
+		    	    "; " + String.format(Locale.GERMAN, "%,.2f", this.y) + ")";
+        else
             stringFormat = "(" + String.format(Locale.GERMAN, "%,.2f",this.x) +
 		    	    "; " + String.format(Locale.GERMAN, "%,.2f", this.y) +
-			    "; " + String.format(Locale.GERMAN, "%,.2f", this.z) + ") " +
-                            "R^" + this.dimension;
+			    "; " + String.format(Locale.GERMAN, "%,.2f", this.z) + ")";
 
         return stringFormat;
 
