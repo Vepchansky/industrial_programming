@@ -4,12 +4,12 @@ import java.util.Locale;
 public class task3 {
 
     public static void main(String[] args){
-        double x = 100.2;
-        double y = 200.5;
+        double x = 100.0;
+        double y = 200.0;
 
         Vector a = new Vector(x, y);
-        Vector b = new Vector(1022.1, 141.4, 3532.6);
-        Vector c = new Vector(7430.5, 5120.5);
+        Vector b = new Vector(500.0, 1000.0, 0);
+        Vector c = new Vector(200.0, 400.0);
 
         System.out.println("Дано:");
         System.out.println(a);
@@ -40,6 +40,11 @@ public class task3 {
         System.out.println("Умножение вектора на константу:");
         System.out.println(a.getMulOnScal(2.0));
         System.out.println(b.getMulOnScal(2.0));
+
+        System.out.println();
+        System.out.println("Проверка векторов на коллинеарность:");
+        System.out.println(Vector.isColl(a, b));
+        System.out.println(Vector.isColl(a, c));
 
     }
 }
@@ -138,6 +143,19 @@ class Vector {
             return new Vector(this.x * scalar,
                               this.y * scalar,
                               this.z * scalar);
+    }
+
+    // Определение коллинеарности
+    
+    public static boolean isColl(Vector first, Vector second) {
+	    boolean collinearity = false;
+	    double cosine;
+
+	    cosine = first.getScalar(second) / (first.getLength() * second.getLength());
+
+	    if ( cosine == 1 || cosine == -1 ) collinearity = true ;
+
+	    return collinearity;
     }
     
     // Метод для вывода строчной информации
