@@ -1,18 +1,15 @@
 import java.util.Scanner;
-//import java.util.Random;
-//import java.time.LocalTime;
-//import java.util.List;
-//import java.util.ArrayList;
+import java.util.Locale;
 
 public class task3 {
 
     public static void main(String[] args){
-        double x = 1.2;
-        double y = 2.5;
+        double x = 100.2;
+        double y = 200.5;
 
         Vector a = new Vector(x, y);
-        Vector b = new Vector(2.1, 1.4, 3.6);
-        Vector c = new Vector(0.5, 0.5);
+        Vector b = new Vector(1022.1, 141.4, 3532.6);
+        Vector c = new Vector(7430.5, 5120.5);
 
         System.out.println("Дано:");
         System.out.println(a);
@@ -149,10 +146,13 @@ class Vector {
         String stringFormat;
 
         if ( this.dimension == 2)
-            stringFormat = "\nВектор:\t(" + this.x + ", " + this.y + ") " +
+            stringFormat = "\nВектор:\t(" + String.format(Locale.GERMAN, "%,.2f",this.x) +
+		    	    "; " + String.format(Locale.GERMAN, "%,.2f", this.y) + ") " +
                             "R^" + this.dimension;
         else //( this.dimension == 3 )
-            stringFormat = "\nВектор:\t(" + this.x + ", " + this.y + ", " + this.z + ") " +
+            stringFormat = "\nВектор:\t(" + String.format(Locale.GERMAN, "%,.2f",this.x) +
+		    	    "; " + String.format(Locale.GERMAN, "%,.2f", this.y) +
+			    "; " + String.format(Locale.GERMAN, "%,.2f", this.z) + ") " +
                             "R^" + this.dimension;
 
         return stringFormat;
