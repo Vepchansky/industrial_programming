@@ -8,10 +8,10 @@ public class task3 {
 	testVectors.add(new Vector(100, 200));
 	testVectors.add(new Vector(500, 1000, 0));
 	testVectors.add(new Vector(-400, 200));
-	testVectors.add(new Vector(100, 200));
-	testVectors.add(new Vector(100, 200));
-	testVectors.add(new Vector(100, 200));
-	testVectors.add(new Vector(100, 200));
+	testVectors.add(new Vector(1, 2, 0));
+	testVectors.add(new Vector(2, -1, 10));
+	testVectors.add(new Vector(2, 5));
+	testVectors.add(new Vector(6, 15));
 	testVectors.add(new Vector(100, 200));
 	return testVectors;
     }
@@ -70,10 +70,14 @@ public class task3 {
         System.out.println();
 	task3.checkToColl(vectors.get(0), vectors.get(1));
 	task3.checkToColl(vectors.get(0), vectors.get(2));
-
+	task3.checkToColl(vectors.get(3), vectors.get(4));
+	task3.checkToColl(vectors.get(5), vectors.get(6));
+	
         System.out.println();
 	task3.checkToOrth(vectors.get(0), vectors.get(1));
 	task3.checkToOrth(vectors.get(0), vectors.get(2));
+	task3.checkToOrth(vectors.get(3), vectors.get(4));
+	task3.checkToOrth(vectors.get(5), vectors.get(6));
 
     }
 }
@@ -182,7 +186,7 @@ class Vector {
 
 	    cosine = first.getScalar(second) / (first.getLength() * second.getLength());
 
-	    if ( cosine == 1 || cosine == -1 ) collinearity = true ;
+	    if ( (int)cosine == 1 || (int)cosine == -1 ) collinearity = true ;
 
 	    return collinearity;
     }
@@ -195,7 +199,7 @@ class Vector {
 
 	    cosine = first.getScalar(second) / (first.getLength() * second.getLength());
 
-	    if ( cosine == 0 ) orthogonality = true ;
+	    if ( (int)cosine == 0 ) orthogonality = true ;
 
 	    return orthogonality;
     }
