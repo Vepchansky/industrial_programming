@@ -9,7 +9,7 @@ public class task3 {
 
         Vector a = new Vector(x, y);
         Vector b = new Vector(500.0, 1000.0, 0);
-        Vector c = new Vector(200.0, 400.0);
+        Vector c = new Vector(-400.0, 200.0);
 
         System.out.println("Дано:");
         System.out.println(a);
@@ -45,6 +45,11 @@ public class task3 {
         System.out.println("Проверка векторов на коллинеарность:");
         System.out.println(Vector.isColl(a, b));
         System.out.println(Vector.isColl(a, c));
+
+        System.out.println();
+        System.out.println("Проверка векторов на ортогональность:");
+        System.out.println(Vector.isOrth(a, b));
+        System.out.println(Vector.isOrth(a, c));
 
     }
 }
@@ -156,6 +161,19 @@ class Vector {
 	    if ( cosine == 1 || cosine == -1 ) collinearity = true ;
 
 	    return collinearity;
+    }
+    
+    // Определение ортогональности
+    
+    public static boolean isOrth(Vector first, Vector second) {
+	    boolean orthogonality = false;
+	    double cosine;
+
+	    cosine = first.getScalar(second) / (first.getLength() * second.getLength());
+
+	    if ( cosine == 0 ) orthogonality = true ;
+
+	    return orthogonality;
     }
     
     // Метод для вывода строчной информации
